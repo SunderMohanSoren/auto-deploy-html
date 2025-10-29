@@ -9,6 +9,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    permissions:
+       contents: read
+       pages: write
+       id-token: write
+
+   environment:
+        name: github-pages
+         url: ${{ steps.deployment.outputs.page.url }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
